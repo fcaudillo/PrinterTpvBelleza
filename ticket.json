@@ -1,0 +1,28 @@
+{
+  "encabezado": {
+     "giro": "Tlapaleria y Papeleria",
+     "negocio": "Fantasy",
+     "fecha": "27/08/2020 03:14",
+     "adicional": ["Lago wetter 55 Col. Agua Azul", "Excelente dia"]
+
+  },
+  "productos": [
+     { "cantidad": 3,
+       "codigoInterno": 1121,
+       "articulo": "Codo 90 de cobre 13mm 1/2 cpvc",
+       "precio": 12,
+       "total": 36
+     },
+     { "cantidad": 100.2,
+       "codigoInterno": 2,
+       "articulo": "Codo 90 de cobre 13mm 1/2 cpvc esta es una prueba de descripcion",
+       "precio": 12,
+       "total": 14.2 
+     }       
+  ],
+  "pie": {
+    "numero_ticket": 1414,
+    "adicional": ["Gracias por su Preferencia","Vuelva pronto"]
+
+  }
+}

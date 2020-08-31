@@ -12,8 +12,6 @@ class PrintConfigure(Resource):
    def get(self,proveedor,modelo):
      self.proveedor = proveedor
      self.modelo = modelo
-     global printer
-     print "Anters : ", printer
      printer = "definido: " + proveedor + " modelo: " + modelo
      print "PrintConfigure ", printer
      return {'result':'success'}
