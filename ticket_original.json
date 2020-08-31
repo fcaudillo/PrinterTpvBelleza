@@ -1,0 +1,26 @@
+{
+   "tipo_movimiento":4,
+   "total":0.08,
+   "descripcion":"Venta al publico",
+   "tipo_impresion":0,
+   "items":[
+      {
+         "cantidad":1,
+         "barcode":"7506240611745",
+         "ubicacion":"A-110",
+         "description":"Item Clavo 1-1/4\" con cabeza 1 Gramo",
+         "precioCompra":0.03,
+         "precioVenta":0.04,
+         "total":0.04
+      },
+      {
+         "cantidad":1,
+         "barcode":"7506240611738",
+         "ubicacion":"A-106",
+         "description":"Item Clavo 1\" con cabeza 1 gramo",
+         "precioCompra":0.03,
+         "precioVenta":0.04,
+         "total":0.04
+      }
+   ]
+}
