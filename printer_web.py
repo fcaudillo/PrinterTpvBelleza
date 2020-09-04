@@ -13,9 +13,8 @@ class PrintConfigure(Resource):
      self.proveedor = proveedor
      self.modelo = modelo
      global printer
-     print "Anters : ", printer
      printer = "definido: " + proveedor + " modelo: " + modelo
-     print "PrintConfigure ", printer
+     print ("PrintConfigure "+ printer)
      return {'result':'success'}
 
      
@@ -23,7 +22,6 @@ class PrintTicket(Resource):
 
    def post(self):
      ticket_data = request.get_json()
-     print "PrintTicket ", printer
      def_page = {
       "ancho_ticket": 40,
       "ancho_precio":5,

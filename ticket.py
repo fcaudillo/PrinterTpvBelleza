@@ -7,7 +7,7 @@ class Ticket:
     self.def_page = def_page
 
   def imprimir(self, linea):
-    print linea
+    print (linea)
 
 
   def format_numero(self, numero, longitud,decimales=0):
@@ -62,6 +62,7 @@ class Ticket:
   
   def print_pie (self, pie):
     self.imprimir("");
+    self.imprimir(pie['numero_ticket'])
     for linea in pie['adicional']:
       self.imprimir(linea[:self.def_page['ancho_ticket']].center(self.def_page['ancho_ticket']))
 
