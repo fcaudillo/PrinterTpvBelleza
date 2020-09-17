@@ -8,6 +8,8 @@ class Ticket:
 
   def imprimir(self, linea):
     print (linea)
+    self.printer.set(align='left')
+    self.printer.text(str(linea)+'\n')
 
 
   def format_numero(self, numero, longitud,decimales=0):
@@ -49,20 +51,20 @@ class Ticket:
   def print_cuerpo(self, productos):
     total = 0
     decimales = self.def_page['decimales']
-    encab = "Cant".ljust(self.def_page['ancho_cantidad']) + " " + "Descripcion".ljust(24) + "Prec".center(self.def_page['ancho_precio']) + "Total".rjust(self.def_page['ancho_total'])
+    encab = "Cant".ljust(self.def_page['ancho_cantidad']) + " " + "Descripcion".ljust(self.def_page['ancho_ticket']-self.def_page['ancho_cantidad']-self.def_page['ancho_precio']-self.def_page['ancho_total']-1) + "Prec".center(self.def_page['ancho_precio']) + "Total".rjust(self.def_page['ancho_total'])
     self.imprimir(encab)
-    self.imprimir('-' * self.def_page['ancho_ticket'])
+    self.imprimir('=' * self.def_page['ancho_ticket'])
     for producto in productos:
       self.imprimir_producto(producto)  
       total = total + producto['total']
-    self.imprimir('-' * self.def_page['ancho_ticket'])
+    self.imprimir('=' * self.def_page['ancho_ticket'])
     total_str = "Total".rjust(self.def_page['ancho_ticket'] - self.def_page['ancho_total'] - self.def_page['ancho_precio'])
     total_str = total_str + ("$ " + ('{:,.' + str(decimales) + 'f}').format(total)).rjust(self.def_page['ancho_total'] + self.def_page['ancho_precio'])
     self.imprimir(total_str)
   
   def print_pie (self, pie):
     self.imprimir("");
-    self.imprimir(pie['numero_ticket'])
+    self.printer.barcode(str(pie['numero_ticket']),'CODE39',64,2,'','')
     for linea in pie['adicional']:
       self.imprimir(linea[:self.def_page['ancho_ticket']].center(self.def_page['ancho_ticket']))
 
@@ -70,6 +72,7 @@ class Ticket:
      self.print_encabezado(ticket['encabezado'])
      self.print_cuerpo(ticket['productos'])
      self.print_pie(ticket['pie'])
+     self.printer.cut()
 
 if __name__ == "__main__Eliminar":
   with open('ticket.json') as json_file:

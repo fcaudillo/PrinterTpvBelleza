@@ -1,0 +1,7 @@
+[Unit]
+Description=Impresion de tickets de papeleria
+After=remote-fs.target
+After=syslog.target
+
+[Service]
+ExecStart=/home/francisco/PrinterTpvBelleza/start_print.sh
