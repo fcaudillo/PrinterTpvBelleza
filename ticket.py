@@ -73,6 +73,7 @@ class Ticket:
      self.print_cuerpo(ticket['productos'])
      self.print_pie(ticket['pie'])
      self.printer.cut()
+     self.printer.cashdraw(5)
 
 if __name__ == "__main__Eliminar":
   with open('ticket.json') as json_file:
