@@ -21,7 +21,10 @@ class PrintConfigure(Resource):
 class PrintTicket(Resource):
 
    def post(self):
+     print ("LLegando peticion")
      ticket_data = request.get_json()
+     print ("1..")
+     print (ticket_data)
      def_page = {
       "ancho_ticket": 46,
       "ancho_precio":5,

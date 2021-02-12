@@ -31,12 +31,12 @@ class Ticket:
     self.imprimir("")
 
   def imprimir_producto(self, producto):
-    articulo = "("+str(producto['codigoInterno']) + ")"+producto['articulo']
+    articulo = "("+str(producto['codigointerno']) + ")"+producto['description']
     decimales = self.def_page['decimales']
     renglon = self.format_numero(producto['cantidad'],self.def_page['ancho_cantidad'])
     len_desc = self.def_page['ancho_ticket'] - self.def_page['ancho_cantidad'] - self.def_page['ancho_precio'] - self.def_page['ancho_total'] - 3
     renglon = renglon + " " + articulo[:len_desc].ljust(len_desc)
-    renglon = renglon + " " + self.format_numero(producto['precio'],self.def_page['ancho_precio'],decimales)
+    renglon = renglon + " " + self.format_numero(producto['precioVenta'],self.def_page['ancho_precio'],decimales)
     renglon = renglon + " " + self.format_numero(producto['total'],self.def_page['ancho_total'],decimales)
     self.imprimir(renglon)
     articulo = articulo[len_desc:].strip()
@@ -73,7 +73,7 @@ class Ticket:
      self.print_cuerpo(ticket['productos'])
      self.print_pie(ticket['pie'])
      self.printer.cut()
-     self.printer.cashdraw(5)
+     self.printer.cashdraw(2)
 
 if __name__ == "__main__Eliminar":
   with open('ticket.json') as json_file:
